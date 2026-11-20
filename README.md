@@ -18,5 +18,14 @@
 </p>
 
 <p align="center">
+  <img src="assets/alien-snack.gif" width="49%" alt="pixel alien cat eating a star cookie">
+  <img src="assets/alien-dance.gif" width="49%" alt="pixel alien cat and alien dog dancing">
+</p>
+
+<p align="center">
+  <img src="assets/star-log.svg" width="100%" alt="b00001 star log: contributions as a galaxy of stars">
+</p>
+
+<p align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=b00001&amp;hide_border=true&amp;bg_color=07070a&amp;title_color=ffd23f&amp;icon_color=e63946&amp;text_color=f5f5f5&amp;show_icons=true" height="150" alt="b00001 GitHub stats">
 </p>
