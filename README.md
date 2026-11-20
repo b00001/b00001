@@ -12,10 +12,6 @@
 </p>
 
 <p align="center">
-  <img src="assets/extras.svg" width="100%" alt="b00001 on repeat playlist">
-</p>
-
-<p align="center">
   <img src="assets/alien-snack.gif" width="49%" alt="pixel alien cat eating a snack">
   <img src="assets/alien-dance.gif" width="49%" alt="pixel alien cat and alien dog dancing">
 </p>
