@@ -1,0 +1,602 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="420" viewBox="0 0 840 420" shape-rendering="crispEdges">
+  <defs>
+    <style>
+      .font-head { font-family: 'Press Start 2P', 'Courier New', monospace; }
+      .font-body { font-family: 'Courier New', monospace; }
+
+      @keyframes twinkle {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.2; }
+      }
+      @keyframes eyeBlink {
+        0%, 92%, 100% { transform: scaleY(1); }
+        95%, 97% { transform: scaleY(0.15); }
+      }
+      @keyframes antennaGlow {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.4; }
+      }
+      @keyframes barShimmer {
+        0% { transform: translate(-40px, 0px); }
+        100% { transform: translate(210px, 0px); }
+      }
+      @keyframes invGalaxySpin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      @keyframes bob1 {
+        0%, 100% { transform: translate(0px, -4px); }
+        50% { transform: translate(0px, 4px); }
+      }
+      @keyframes bob2 {
+        0%, 100% { transform: translate(0px, 4px); }
+        50% { transform: translate(0px, -4px); }
+      }
+      @keyframes eqRingPulse {
+        0%, 100% { opacity: 1; stroke-width: 2.5; }
+        50% { opacity: 0.35; stroke-width: 1.5; }
+      }
+      @keyframes eqHaloPulse {
+        0%, 100% { opacity: 0.45; }
+        50% { opacity: 0.12; }
+      }
+
+      .tw1 { animation: twinkle 2.6s steps(2, end) infinite; }
+      .tw2 { animation: twinkle 3.6s steps(2, end) infinite; }
+      .eyes-blink { animation: eyeBlink 4.8s steps(1, end) infinite; }
+      .ant-glow { animation: antennaGlow 1.8s steps(2, end) infinite; }
+      .shimmer { animation: barShimmer 2.6s linear infinite; }
+      .inv-galaxy-spin {
+        transform-box: fill-box;
+        transform-origin: center;
+        animation: invGalaxySpin 72s linear infinite;
+      }
+      .float-luau { animation: bob1 3.0s ease-in-out infinite; }
+      .float-py   { animation: bob2 3.7s ease-in-out -0.9s infinite; }
+      .float-js   { animation: bob1 4.3s ease-in-out -1.8s infinite; }
+      .float-3d   { animation: bob2 5.0s ease-in-out -2.7s infinite; }
+      .eq-ring    { animation: eqRingPulse 1.6s ease-in-out infinite; }
+      .eq-halo    { animation: eqHaloPulse 1.6s ease-in-out infinite; }
+    </style>
+
+    <clipPath id="progress-clip">
+      <rect x="348" y="185" width="168" height="10"/>
+    </clipPath>
+
+    <clipPath id="inv-clip">
+      <rect x="256" y="216" width="542" height="176"/>
+    </clipPath>
+
+    <symbol id="tiny-star" viewBox="0 0 8 8">
+      <rect x="3" y="0" width="2" height="8" fill="currentColor"/>
+      <rect x="0" y="3" width="8" height="2" fill="currentColor"/>
+      <rect x="2" y="2" width="4" height="4" fill="currentColor"/>
+      <rect x="3" y="3" width="2" height="2" fill="#f5f5f5"/>
+    </symbol>
+
+    <!-- Reusable pixel-art glowing orb slot (centered at 0,0; radius 21px) -->
+    <g id="inv-orb">
+      <!-- Outer soft dark aura -->
+      <rect x="-15" y="-23" width="30" height="46" fill="#07070a"/>
+      <rect x="-23" y="-15" width="46" height="30" fill="#07070a"/>
+      <!-- Stepped pixel circle border (white/gray) -->
+      <rect x="-11" y="-21" width="22" height="42" fill="#8a8a8f"/>
+      <rect x="-17" y="-17" width="34" height="34" fill="#8a8a8f"/>
+      <rect x="-21" y="-11" width="42" height="22" fill="#8a8a8f"/>
+      <!-- Top crisp white highlight edge -->
+      <rect x="-11" y="-21" width="22" height="2" fill="#f5f5f5"/>
+      <rect x="-17" y="-17" width="6" height="2" fill="#f5f5f5"/>
+      <!-- Inner dark orb interior -->
+      <rect x="-11" y="-19" width="22" height="38" fill="#111114"/>
+      <rect x="-15" y="-15" width="30" height="30" fill="#111114"/>
+      <rect x="-19" y="-11" width="38" height="22" fill="#111114"/>
+      <!-- Subtle inner sheen pixel -->
+      <rect x="-11" y="-15" width="4" height="2" fill="#8a8a8f" opacity="0.5"/>
+      <rect x="-13" y="-13" width="2" height="4" fill="#8a8a8f" opacity="0.5"/>
+    </g>
+
+    <!-- Equipped glowing yellow orb slot (for LUAU, centered at 0,0) -->
+    <g id="inv-orb-equipped">
+      <!-- Pulsing outer yellow halo -->
+      <g class="eq-halo">
+        <rect x="-15" y="-27" width="30" height="54" fill="#ffd23f"/>
+        <rect x="-23" y="-23" width="46" height="46" fill="#ffd23f"/>
+        <rect x="-27" y="-15" width="54" height="30" fill="#ffd23f"/>
+      </g>
+      <!-- Dark separation ring -->
+      <rect x="-13" y="-24" width="26" height="48" fill="#07070a"/>
+      <rect x="-20" y="-20" width="40" height="40" fill="#07070a"/>
+      <rect x="-24" y="-13" width="48" height="26" fill="#07070a"/>
+      <!-- Bright yellow pixel circle border -->
+      <rect x="-11" y="-21" width="22" height="42" fill="#ffd23f"/>
+      <rect x="-17" y="-17" width="34" height="34" fill="#ffd23f"/>
+      <rect x="-21" y="-11" width="42" height="22" fill="#ffd23f"/>
+      <!-- Specular white top highlight -->
+      <rect x="-11" y="-21" width="22" height="2" fill="#f5f5f5"/>
+      <!-- Inner orb interior -->
+      <rect x="-11" y="-19" width="22" height="38" fill="#1a1a1f"/>
+      <rect x="-15" y="-15" width="30" height="30" fill="#1a1a1f"/>
+      <rect x="-19" y="-11" width="38" height="22" fill="#1a1a1f"/>
+      <!-- Pulsing outer yellow ring -->
+      <circle cx="0" cy="0" r="28" fill="none" stroke="#ffd23f" stroke-dasharray="6 4" class="eq-ring"/>
+    </g>
+
+    <!-- Compact Pixel Spiral Galaxy Arm for Inventory Scene (mirrored 180deg) -->
+    <g id="inv-galaxy-arm">
+      <!-- Inner yellow arm -->
+      <rect x="8" y="-2" width="10" height="8" fill="#ffd23f"/>
+      <rect x="12" y="4" width="10" height="10" fill="#ffd23f"/>
+      <rect x="6" y="14" width="12" height="8" fill="#ffd23f"/>
+      <rect x="-8" y="20" width="14" height="8" fill="#c99a00"/>
+      <rect x="-24" y="20" width="14" height="8" fill="#ffd23f"/>
+      <rect x="-38" y="12" width="12" height="8" fill="#c99a00"/>
+      <rect x="-48" y="-2" width="10" height="12" fill="#ffd23f" opacity="0.9"/>
+      <rect x="-50" y="-18" width="10" height="12" fill="#c99a00" opacity="0.8"/>
+      <rect x="-42" y="-34" width="10" height="10" fill="#c99a00" opacity="0.7"/>
+      <rect x="-26" y="-46" width="12" height="8" fill="#ffd23f" opacity="0.6"/>
+      <rect x="-6" y="-52" width="12" height="6" fill="#c99a00" opacity="0.5"/>
+      <rect x="16" y="-50" width="10" height="4" fill="#c99a00" opacity="0.4"/>
+
+      <!-- Red spiral band -->
+      <rect x="18" y="8" width="8" height="8" fill="#e63946"/>
+      <rect x="12" y="18" width="10" height="8" fill="#e63946"/>
+      <rect x="-4" y="26" width="14" height="6" fill="#9d1c26"/>
+      <rect x="-24" y="26" width="14" height="6" fill="#e63946"/>
+      <rect x="-42" y="18" width="12" height="8" fill="#9d1c26"/>
+      <rect x="-54" y="4" width="10" height="12" fill="#e63946"/>
+      <rect x="-56" y="-16" width="8" height="14" fill="#9d1c26"/>
+      <rect x="-48" y="-36" width="10" height="12" fill="#e63946" opacity="0.85"/>
+      <rect x="-32" y="-50" width="12" height="8" fill="#9d1c26" opacity="0.75"/>
+      <rect x="-12" y="-58" width="14" height="6" fill="#e63946" opacity="0.6"/>
+      <rect x="12" y="-56" width="10" height="4" fill="#9d1c26" opacity="0.45"/>
+
+      <!-- Star knots & dust specks -->
+      <rect x="12" y="8" width="4" height="4" fill="#f5f5f5"/>
+      <rect x="-18" y="22" width="4" height="4" fill="#f5f5f5" class="tw1"/>
+      <rect x="-46" y="4" width="4" height="4" fill="#f5f5f5"/>
+      <rect x="-44" y="-28" width="4" height="4" fill="#ffd23f" class="tw2"/>
+      <rect x="-16" y="-52" width="4" height="4" fill="#f5f5f5" class="tw1"/>
+      <rect x="-60" y="-6" width="3" height="3" fill="#8a8a8f" opacity="0.6"/>
+      <rect x="-24" y="-62" width="3" height="3" fill="#8a8a8f" opacity="0.5"/>
+      <rect x="28" y="-48" width="3" height="3" fill="#e63946" opacity="0.6"/>
+    </g>
+  </defs>
+
+  <!-- Opaque outer canvas background -->
+  <rect x="0" y="0" width="840" height="420" fill="#07070a"/>
+
+  <!-- Hard offset drop shadow in red for main window + tab -->
+  <rect x="22" y="38" width="802" height="370" fill="#9d1c26"/>
+  <rect x="18" y="42" width="810" height="362" fill="#9d1c26"/>
+  <rect x="22" y="14" width="140" height="28" fill="#9d1c26"/>
+
+  <!-- Outer near-black pixel outline -->
+  <rect x="16" y="28" width="802" height="378" fill="#07070a"/>
+  <rect x="8" y="36" width="818" height="362" fill="#07070a"/>
+  <rect x="16" y="4" width="140" height="32" fill="#07070a"/>
+  <rect x="12" y="8" width="148" height="28" fill="#07070a"/>
+
+  <!-- Main panel chunky 4px border (yellow + white highlight + dark gold bevel) -->
+  <rect x="16" y="32" width="802" height="370" fill="#ffd23f"/>
+  <rect x="12" y="36" width="810" height="362" fill="#ffd23f"/>
+  <!-- Top & left white bevel highlight -->
+  <rect x="16" y="32" width="802" height="4" fill="#f5f5f5"/>
+  <rect x="12" y="36" width="4" height="362" fill="#f5f5f5"/>
+  <!-- Bottom & right dark yellow bevel shadow -->
+  <rect x="16" y="398" width="802" height="4" fill="#c99a00"/>
+  <rect x="818" y="36" width="4" height="362" fill="#c99a00"/>
+
+  <!-- Main panel interior -->
+  <rect x="18" y="36" width="798" height="362" fill="#111114"/>
+
+  <!-- Top-left Tab: STATUS (connected seamlessly to main panel) -->
+  <rect x="16" y="8" width="140" height="28" fill="#ffd23f"/>
+  <rect x="12" y="12" width="148" height="24" fill="#ffd23f"/>
+  <rect x="16" y="8" width="140" height="4" fill="#f5f5f5"/>
+  <rect x="12" y="12" width="4" height="24" fill="#f5f5f5"/>
+  <rect x="156" y="12" width="4" height="24" fill="#c99a00"/>
+  <!-- Tab interior seamlessly joins main interior -->
+  <rect x="18" y="12" width="136" height="28" fill="#111114"/>
+  <!-- Tiny star + STATUS text -->
+  <g color="#ffd23f">
+    <use href="#tiny-star" x="28" y="18" width="10" height="10" class="tw1"/>
+  </g>
+  <text x="46" y="28" class="font-head" font-size="11" fill="#ffd23f" letter-spacing="1">STATUS</text>
+
+  <!-- Corner accent pixel jewels in red -->
+  <rect x="16" y="8" width="4" height="4" fill="#e63946"/>
+  <rect x="814" y="32" width="4" height="4" fill="#e63946"/>
+  <rect x="16" y="398" width="4" height="4" fill="#e63946"/>
+  <rect x="814" y="398" width="4" height="4" fill="#e63946"/>
+
+  <!-- Top-right retro window status dots -->
+  <rect x="758" y="45" width="6" height="6" fill="#e63946"/>
+  <rect x="772" y="45" width="6" height="6" fill="#ffd23f"/>
+  <rect x="786" y="45" width="6" height="6" fill="#f5f5f5"/>
+
+  <!-- ==================== LEFT COLUMN: PORTRAIT & RANK ==================== -->
+  <!-- Portrait outer pixel border -->
+  <rect x="38" y="52" width="184" height="184" fill="#07070a"/>
+  <rect x="40" y="54" width="180" height="180" fill="#f5f5f5"/>
+  <rect x="40" y="231" width="180" height="3" fill="#8a8a8f"/>
+  <rect x="217" y="54" width="3" height="180" fill="#8a8a8f"/>
+  <!-- Portrait corner red accents -->
+  <rect x="40" y="54" width="4" height="4" fill="#e63946"/>
+  <rect x="216" y="54" width="4" height="4" fill="#e63946"/>
+  <rect x="40" y="230" width="4" height="4" fill="#e63946"/>
+  <rect x="216" y="230" width="4" height="4" fill="#e63946"/>
+
+  <!-- Portrait dark galaxy interior -->
+  <rect x="44" y="58" width="172" height="172" fill="#07070a"/>
+  <rect x="44" y="156" width="172" height="74" fill="#111114"/>
+  <rect x="44" y="198" width="172" height="32" fill="#1a1a1f"/>
+
+  <!-- Tiny twinkling stars inside portrait -->
+  <rect x="56" y="70" width="4" height="4" fill="#ffd23f" class="tw1"/>
+  <rect x="196" y="76" width="4" height="4" fill="#f5f5f5" class="tw2"/>
+  <rect x="184" y="106" width="3" height="3" fill="#e63946" class="tw1"/>
+  <rect x="54" y="122" width="3" height="3" fill="#f5f5f5" class="tw2"/>
+  <rect x="74" y="90" width="2" height="2" fill="#8a8a8f"/>
+  <rect x="174" y="68" width="2" height="2" fill="#ffd23f"/>
+  <rect x="200" y="140" width="3" height="3" fill="#f5f5f5" class="tw1"/>
+
+  <!-- PIXEL ASTRONAUT CHARACTER (white suit, yellow visor, red accents; origin 58, 86) -->
+  <g transform="translate(58, 86)">
+    <!-- Antenna stem + glowing yellow/red star orb -->
+    <rect x="66" y="-6" width="12" height="12" fill="#8a8a8f"/>
+    <rect x="69" y="-6" width="6" height="12" fill="#f5f5f5"/>
+    <g class="ant-glow">
+      <rect x="66" y="-22" width="12" height="16" fill="#e63946"/>
+      <rect x="60" y="-16" width="24" height="6" fill="#ffd23f"/>
+      <rect x="69" y="-16" width="6" height="6" fill="#f5f5f5"/>
+    </g>
+
+    <!-- Helmet dark pixel outline -->
+    <rect x="36" y="0" width="72" height="6" fill="#07070a"/>
+    <rect x="24" y="6" width="96" height="6" fill="#07070a"/>
+    <rect x="18" y="12" width="108" height="6" fill="#07070a"/>
+    <rect x="12" y="18" width="120" height="72" fill="#07070a"/>
+    <rect x="18" y="90" width="108" height="6" fill="#07070a"/>
+
+    <!-- Ear pods (red accents with yellow studs) -->
+    <rect x="6" y="42" width="12" height="30" fill="#e63946"/>
+    <rect x="6" y="42" width="6" height="6" fill="#f5f5f5"/>
+    <rect x="6" y="54" width="6" height="6" fill="#ffd23f"/>
+    <rect x="126" y="42" width="12" height="30" fill="#9d1c26"/>
+    <rect x="132" y="54" width="6" height="6" fill="#ffd23f"/>
+
+    <!-- Helmet main white shell -->
+    <rect x="42" y="6" width="60" height="6" fill="#ffffff"/>
+    <rect x="30" y="12" width="84" height="6" fill="#f5f5f5"/>
+    <rect x="36" y="12" width="48" height="6" fill="#ffffff"/>
+    <rect x="24" y="18" width="96" height="6" fill="#f5f5f5"/>
+    <rect x="18" y="24" width="108" height="60" fill="#f5f5f5"/>
+    <!-- Right-side helmet neutral shading -->
+    <rect x="114" y="24" width="12" height="60" fill="#c8c8cc"/>
+    <rect x="108" y="18" width="12" height="6" fill="#c8c8cc"/>
+    <!-- Helmet bottom chin curve -->
+    <rect x="24" y="84" width="96" height="6" fill="#c8c8cc"/>
+    <rect x="30" y="90" width="84" height="6" fill="#8a8a8f"/>
+
+    <!-- Glossy Yellow Visor -->
+    <rect x="36" y="30" width="72" height="6" fill="#c99a00"/>
+    <rect x="30" y="36" width="84" height="42" fill="#ffd23f"/>
+    <rect x="30" y="66" width="84" height="12" fill="#c99a00"/>
+    <rect x="36" y="78" width="72" height="6" fill="#9d1c26"/>
+    <!-- Thin dark visor rim -->
+    <rect x="36" y="28" width="72" height="2" fill="#07070a"/>
+    <rect x="28" y="36" width="2" height="42" fill="#07070a"/>
+    <rect x="114" y="36" width="2" height="42" fill="#07070a"/>
+
+    <!-- Visor bright white specular shine -->
+    <rect x="36" y="36" width="16" height="6" fill="#f5f5f5"/>
+    <rect x="36" y="42" width="6" height="6" fill="#f5f5f5"/>
+
+    <!-- Cute dark pixel eyes inside yellow visor (with blink!) -->
+    <g transform="translate(0, 60)">
+      <g class="eyes-blink">
+        <!-- Left eye -->
+        <rect x="48" y="-12" width="12" height="18" fill="#111114"/>
+        <rect x="48" y="-12" width="6" height="6" fill="#f5f5f5"/>
+        <!-- Right eye -->
+        <rect x="84" y="-12" width="12" height="18" fill="#111114"/>
+        <rect x="84" y="-12" width="6" height="6" fill="#f5f5f5"/>
+      </g>
+    </g>
+
+    <!-- Cute red accent cheeks & tiny dark smile -->
+    <rect x="36" y="66" width="10" height="6" fill="#e63946"/>
+    <rect x="98" y="66" width="10" height="6" fill="#e63946"/>
+    <rect x="66" y="68" width="12" height="4" fill="#111114"/>
+
+    <!-- White Space Suit Collar & Shoulders with red accents -->
+    <rect x="36" y="96" width="72" height="6" fill="#e63946"/>
+    <rect x="54" y="96" width="36" height="6" fill="#ffd23f"/>
+    <rect x="24" y="102" width="96" height="6" fill="#f5f5f5"/>
+    <rect x="102" y="102" width="18" height="6" fill="#c8c8cc"/>
+    <rect x="12" y="108" width="120" height="36" fill="#f5f5f5"/>
+    <!-- Red shoulder stripes -->
+    <rect x="16" y="114" width="10" height="6" fill="#e63946"/>
+    <rect x="118" y="114" width="10" height="6" fill="#9d1c26"/>
+    <!-- Suit shading & arm seams -->
+    <rect x="114" y="108" width="18" height="36" fill="#c8c8cc"/>
+    <rect x="30" y="114" width="6" height="30" fill="#8a8a8f"/>
+    <rect x="108" y="114" width="6" height="30" fill="#8a8a8f"/>
+    <!-- Chest control pack -->
+    <rect x="48" y="114" width="48" height="24" fill="#1a1a1f"/>
+    <rect x="54" y="120" width="8" height="8" fill="#e63946"/>
+    <rect x="68" y="120" width="8" height="8" fill="#ffd23f"/>
+    <rect x="82" y="120" width="8" height="8" fill="#f5f5f5"/>
+    <rect x="54" y="132" width="36" height="3" fill="#8a8a8f"/>
+  </g>
+
+  <!-- Name under portrait -->
+  <text x="132" y="264" text-anchor="middle" class="font-head" font-size="13" fill="#9d1c26">b00001</text>
+  <text x="130" y="262" text-anchor="middle" class="font-head" font-size="13" fill="#f5f5f5">b00001</text>
+
+  <!-- LV. 99 + Star Rank pill -->
+  <rect x="46" y="274" width="168" height="24" fill="#07070a"/>
+  <rect x="46" y="274" width="168" height="2" fill="#ffd23f"/>
+  <rect x="46" y="296" width="168" height="2" fill="#ffd23f"/>
+  <rect x="46" y="274" width="2" height="24" fill="#ffd23f"/>
+  <rect x="212" y="274" width="2" height="24" fill="#ffd23f"/>
+  <text x="58" y="290" class="font-head" font-size="9.5" fill="#ffd23f">LV. 99</text>
+  <!-- 3 Pixel rank stars -->
+  <g color="#ffd23f">
+    <use href="#tiny-star" x="150" y="281" width="10" height="10"/>
+    <use href="#tiny-star" x="168" y="281" width="10" height="10"/>
+  </g>
+  <g color="#e63946">
+    <use href="#tiny-star" x="186" y="281" width="10" height="10" class="tw1"/>
+  </g>
+
+  <!-- Left column bottom retro vitals card -->
+  <g>
+    <rect x="40" y="314" width="180" height="78" fill="#07070a" stroke="#2a2a30" stroke-width="2"/>
+    <rect x="40" y="314" width="4" height="4" fill="#ffd23f"/>
+    <rect x="216" y="314" width="4" height="4" fill="#ffd23f"/>
+    <rect x="40" y="388" width="4" height="4" fill="#e63946"/>
+    <rect x="216" y="388" width="4" height="4" fill="#e63946"/>
+
+    <text x="52" y="333" class="font-head" font-size="8" fill="#e63946">HP</text>
+    <rect x="80" y="325" width="90" height="8" fill="#1a1a1f"/>
+    <rect x="80" y="325" width="90" height="8" fill="#e63946"/>
+    <rect x="80" y="325" width="90" height="2" fill="#f5f5f5" opacity="0.35"/>
+    <text x="176" y="333" class="font-body" font-size="10.5" font-weight="bold" fill="#f5f5f5">99/99</text>
+
+    <text x="52" y="355" class="font-head" font-size="8" fill="#ffd23f">SP</text>
+    <rect x="80" y="347" width="90" height="8" fill="#1a1a1f"/>
+    <rect x="80" y="347" width="90" height="8" fill="#ffd23f"/>
+    <rect x="80" y="347" width="90" height="2" fill="#f5f5f5" opacity="0.45"/>
+    <text x="176" y="355" class="font-body" font-size="10.5" font-weight="bold" fill="#f5f5f5">99/99</text>
+
+    <line x1="50" y1="366" x2="210" y2="366" stroke="#2a2a30" stroke-width="1" stroke-dasharray="2 3"/>
+    <rect x="52" y="375" width="6" height="6" fill="#ffd23f" class="tw1"/>
+    <text x="64" y="381" class="font-body" font-size="10.5" fill="#8a8a8f">STATE: <tspan fill="#f5f5f5" font-weight="bold">ORBITING</tspan></text>
+  </g>
+
+  <!-- Vertical separator between portrait & right column -->
+  <line x1="236" y1="54" x2="236" y2="390" stroke="#2a2a30" stroke-width="2" stroke-dasharray="4 4"/>
+
+  <!-- ==================== RIGHT COLUMN: STATS ==================== -->
+  <!-- Row 1: CLASS -->
+  <text x="254" y="72" class="font-head" font-size="10" fill="#ffd23f">CLASS</text>
+  <text x="344" y="72" class="font-body" font-size="14" font-weight="bold" fill="#f5f5f5">game dev + ai tinkerer</text>
+  <line x1="254" y1="84" x2="796" y2="84" stroke="#2a2a30" stroke-width="2" stroke-dasharray="3 4"/>
+
+  <!-- Row 2: ENGINE -->
+  <text x="254" y="105" class="font-head" font-size="10" fill="#ffd23f">ENGINE</text>
+  <text x="344" y="105" class="font-body" font-size="14" font-weight="bold" fill="#f5f5f5">roblox studio · blender</text>
+  <line x1="254" y1="117" x2="796" y2="117" stroke="#2a2a30" stroke-width="2" stroke-dasharray="3 4"/>
+
+  <!-- Row 3: MAIN -->
+  <text x="254" y="138" class="font-head" font-size="10" fill="#ffd23f">MAIN</text>
+  <text x="344" y="138" class="font-body" font-size="14" font-weight="bold" fill="#f5f5f5">luau / python / js</text>
+  <line x1="254" y1="150" x2="796" y2="150" stroke="#2a2a30" stroke-width="2" stroke-dasharray="3 4"/>
+
+  <!-- Row 4: QUEST + Progress Bar -->
+  <text x="254" y="170" class="font-head" font-size="10" fill="#e63946">QUEST</text>
+  <text x="344" y="170" class="font-body" font-size="13.5" font-weight="bold" fill="#f5f5f5">building <tspan fill="#ffd23f">Astro Camp</tspan> — a roblox stargazing game</text>
+
+  <!-- Pixel Progress Bar (~60%, yellow fill on black with red tick marks) -->
+  <g>
+    <!-- Black track frame -->
+    <rect x="344" y="181" width="286" height="18" fill="#07070a"/>
+    <rect x="344" y="181" width="286" height="2" fill="#f5f5f5"/>
+    <rect x="344" y="197" width="286" height="2" fill="#8a8a8f"/>
+    <rect x="344" y="181" width="2" height="18" fill="#f5f5f5"/>
+    <rect x="628" y="181" width="2" height="18" fill="#8a8a8f"/>
+
+    <!-- Filled ~60% yellow bar on black (168px of 280px) -->
+    <rect x="348" y="185" width="168" height="10" fill="#ffd23f"/>
+    <!-- Top specular highlight strip -->
+    <rect x="348" y="185" width="168" height="3" fill="#f5f5f5" opacity="0.45"/>
+    <!-- Bottom shade strip -->
+    <rect x="348" y="193" width="168" height="2" fill="#c99a00"/>
+
+    <!-- Subtle shimmer highlight sweeping across filled 60% -->
+    <g clip-path="url(#progress-clip)">
+      <g class="shimmer">
+        <rect x="348" y="185" width="18" height="10" fill="#ffffff" opacity="0.35"/>
+        <rect x="354" y="185" width="6" height="10" fill="#ffffff" opacity="0.55"/>
+      </g>
+    </g>
+
+    <!-- Crisp Red Tick Marks across the full progress bar (every 10% = 28px) -->
+    <g fill="#e63946">
+      <rect x="374" y="183" width="2" height="14"/>
+      <rect x="402" y="183" width="2" height="14"/>
+      <rect x="430" y="183" width="2" height="14"/>
+      <rect x="458" y="183" width="2" height="14"/>
+      <rect x="486" y="183" width="2" height="14"/>
+      <rect x="514" y="183" width="2" height="14"/>
+      <rect x="542" y="183" width="2" height="14"/>
+      <rect x="570" y="183" width="2" height="14"/>
+      <rect x="598" y="183" width="2" height="14"/>
+    </g>
+    <!-- Red leading-edge progress cursor tick -->
+    <rect x="514" y="181" width="4" height="18" fill="#e63946"/>
+
+    <!-- Label beside progress bar -->
+    <text x="640" y="194" class="font-body" font-size="11.5" font-weight="bold" fill="#f5f5f5">IN PROGRESS · <tspan fill="#ffd23f">60%</tspan></text>
+  </g>
+
+  <!-- ==================== FLOATING INVENTORY GALAXY SCENE ==================== -->
+  <!-- Scene outer pixel frame -->
+  <rect x="254" y="214" width="546" height="180" fill="#07070a" stroke="#8a8a8f" stroke-width="2"/>
+  <rect x="254" y="214" width="6" height="6" fill="#ffd23f"/>
+  <rect x="794" y="214" width="6" height="6" fill="#ffd23f"/>
+  <rect x="254" y="388" width="6" height="6" fill="#e63946"/>
+  <rect x="794" y="388" width="6" height="6" fill="#e63946"/>
+
+  <!-- Clipped Space Viewport for Galaxy & Floating Items -->
+  <g clip-path="url(#inv-clip)">
+    <!-- Deep black space backdrop -->
+    <rect x="256" y="216" width="542" height="176" fill="#07070a"/>
+
+    <!-- Scattered subtle background stars -->
+    <rect x="276" y="250" width="2" height="2" fill="#f5f5f5" class="tw1"/>
+    <rect x="304" y="366" width="2" height="2" fill="#ffd23f" class="tw2"/>
+    <rect x="380" y="242" width="2" height="2" fill="#8a8a8f"/>
+    <rect x="394" y="368" width="3" height="3" fill="#e63946" class="tw1"/>
+    <rect x="488" y="238" width="2" height="2" fill="#f5f5f5" class="tw2"/>
+    <rect x="572" y="246" width="2" height="2" fill="#ffd23f" class="tw1"/>
+    <rect x="668" y="240" width="3" height="3" fill="#f5f5f5" class="tw2"/>
+    <rect x="776" y="252" width="2" height="2" fill="#e63946" class="tw1"/>
+    <rect x="768" y="364" width="2" height="2" fill="#f5f5f5" class="tw2"/>
+    <rect x="692" y="372" width="2" height="2" fill="#ffd23f" class="tw1"/>
+    <rect x="526" y="378" width="2" height="2" fill="#8a8a8f"/>
+    <rect x="272" y="328" width="2" height="2" fill="#e63946" opacity="0.7"/>
+
+    <!-- Faint dotted elliptical orbit rings centered at (527, 308) -->
+    <ellipse cx="527" cy="308" rx="208" ry="56" fill="none" stroke="#c99a00" stroke-opacity="0.38" stroke-width="1.5" stroke-dasharray="4 6"/>
+    <ellipse cx="527" cy="308" rx="126" ry="48" fill="none" stroke="#8a8a8f" stroke-opacity="0.35" stroke-width="1.5" stroke-dasharray="3 5"/>
+    <!-- Tiny orbit node dots -->
+    <rect x="525" y="250" width="4" height="4" fill="#e63946" opacity="0.65"/>
+    <rect x="525" y="362" width="4" height="4" fill="#c99a00" opacity="0.65"/>
+
+    <!-- Small Rotating Spiral Galaxy at center (527, 308), tilted to match orbit plane -->
+    <g transform="translate(527, 308) scale(1, 0.56)">
+      <g class="inv-galaxy-spin">
+        <rect x="-68" y="-68" width="136" height="136" fill="none"/>
+        <!-- Core aura -->
+        <rect x="-26" y="-18" width="52" height="36" fill="#9d1c26" opacity="0.22"/>
+        <rect x="-18" y="-26" width="36" height="52" fill="#9d1c26" opacity="0.22"/>
+        <!-- Spiral arms -->
+        <use href="#inv-galaxy-arm"/>
+        <use href="#inv-galaxy-arm" transform="rotate(180)"/>
+        <!-- Bright glowing core -->
+        <rect x="-12" y="-8" width="24" height="16" fill="#c99a00"/>
+        <rect x="-8" y="-12" width="16" height="24" fill="#c99a00"/>
+        <rect x="-8" y="-6" width="16" height="12" fill="#ffd23f"/>
+        <rect x="-6" y="-8" width="12" height="16" fill="#ffd23f"/>
+        <rect x="-4" y="-4" width="8" height="8" fill="#f5f5f5"/>
+        <rect x="-2" y="-6" width="4" height="12" fill="#ffffff"/>
+        <rect x="-6" y="-2" width="12" height="4" fill="#ffffff"/>
+      </g>
+    </g>
+
+    <!-- Scene top labels -->
+    <text x="266" y="232" class="font-head" font-size="8.5" fill="#ffd23f">[ INVENTORY ]</text>
+    <text x="786" y="232" text-anchor="end" class="font-body" font-size="10.5" fill="#8a8a8f">EQUIPPED: <tspan fill="#ffd23f" font-weight="bold">LUAU</tspan></text>
+
+    <!-- ===== FLOATING ITEM 1: LUAU (EQUIPPED — outer orbit left, 3.0s bob) ===== -->
+    <g transform="translate(322, 308)">
+      <g class="float-luau">
+        <use href="#inv-orb-equipped"/>
+        <!-- Tiny red EQ star badge top-right of orb -->
+        <rect x="16" y="-24" width="10" height="10" fill="#e63946"/>
+        <rect x="20" y="-22" width="2" height="6" fill="#f5f5f5"/>
+        <rect x="18" y="-20" width="6" height="2" fill="#f5f5f5"/>
+        <!-- Pixel Crescent Moon + Orbiting Star icon -->
+        <g transform="translate(-14, -12)">
+          <rect x="8" y="0" width="10" height="3" fill="#ffd23f"/>
+          <rect x="4" y="3" width="10" height="3" fill="#ffd23f"/>
+          <rect x="1" y="6" width="9" height="12" fill="#ffd23f"/>
+          <rect x="4" y="18" width="10" height="3" fill="#ffd23f"/>
+          <rect x="8" y="21" width="10" height="3" fill="#c99a00"/>
+          <rect x="4" y="6" width="3" height="6" fill="#f5f5f5"/>
+          <!-- Orbiting red/white star -->
+          <rect x="19" y="6" width="6" height="6" fill="#e63946"/>
+          <rect x="21" y="4" width="2" height="10" fill="#f5f5f5"/>
+          <rect x="17" y="8" width="10" height="2" fill="#f5f5f5"/>
+        </g>
+        <!-- Label -->
+        <rect x="-24" y="26" width="48" height="14" fill="#07070a" fill-opacity="0.85"/>
+        <text x="0" y="36" text-anchor="middle" class="font-head" font-size="8.5" fill="#ffd23f">LUAU</text>
+      </g>
+    </g>
+
+    <!-- ===== FLOATING ITEM 2: PY (inner orbit upper-left, 3.7s bob) ===== -->
+    <g transform="translate(442, 272)">
+      <g class="float-py">
+        <use href="#inv-orb"/>
+        <!-- Original Pixel Two-Tone Coiled Snake (red + yellow) -->
+        <g transform="translate(-13, -11)">
+          <!-- Red top serpent -->
+          <rect x="6" y="0" width="14" height="4" fill="#e63946"/>
+          <rect x="3" y="4" width="17" height="4" fill="#e63946"/>
+          <rect x="9" y="4" width="3" height="3" fill="#07070a"/>
+          <rect x="3" y="8" width="10" height="4" fill="#9d1c26"/>
+          <!-- Yellow bottom serpent -->
+          <rect x="13" y="10" width="10" height="4" fill="#ffd23f"/>
+          <rect x="6" y="14" width="17" height="4" fill="#ffd23f"/>
+          <rect x="14" y="15" width="3" height="3" fill="#07070a"/>
+          <rect x="6" y="18" width="14" height="4" fill="#c99a00"/>
+        </g>
+        <!-- Label -->
+        <rect x="-16" y="24" width="32" height="13" fill="#07070a" fill-opacity="0.85"/>
+        <text x="0" y="34" text-anchor="middle" class="font-head" font-size="8.5" fill="#f5f5f5">PY</text>
+      </g>
+    </g>
+
+    <!-- ===== FLOATING ITEM 3: JS (inner orbit lower-right, 4.3s bob) ===== -->
+    <g transform="translate(616, 342)">
+      <g class="float-js">
+        <use href="#inv-orb"/>
+        <!-- Pixel Spark Lightning Bolt -->
+        <g transform="translate(-12, -12)">
+          <rect x="12" y="0" width="9" height="4" fill="#f5f5f5"/>
+          <rect x="9" y="4" width="9" height="4" fill="#ffd23f"/>
+          <rect x="6" y="8" width="15" height="4" fill="#ffd23f"/>
+          <rect x="12" y="12" width="9" height="4" fill="#ffd23f"/>
+          <rect x="9" y="16" width="9" height="4" fill="#c99a00"/>
+          <rect x="6" y="20" width="6" height="3" fill="#c99a00"/>
+          <!-- Red spark pixels -->
+          <rect x="0" y="6" width="3" height="3" fill="#e63946"/>
+          <rect x="22" y="14" width="3" height="3" fill="#e63946"/>
+        </g>
+        <!-- Label -->
+        <rect x="-16" y="24" width="32" height="13" fill="#07070a" fill-opacity="0.85"/>
+        <text x="0" y="34" text-anchor="middle" class="font-head" font-size="8.5" fill="#f5f5f5">JS</text>
+      </g>
+    </g>
+
+    <!-- ===== FLOATING ITEM 4: 3D (outer orbit right, 5.0s bob) ===== -->
+    <g transform="translate(722, 288)">
+      <g class="float-3d">
+        <use href="#inv-orb"/>
+        <!-- Isometric Pixel Cube (white top, red left, yellow right) -->
+        <g transform="translate(-14, -12)">
+          <!-- Top white diamond -->
+          <rect x="10" y="0" width="8" height="3" fill="#f5f5f5"/>
+          <rect x="6" y="3" width="16" height="3" fill="#f5f5f5"/>
+          <rect x="2" y="6" width="24" height="3" fill="#ffffff"/>
+          <!-- Left red face -->
+          <rect x="2" y="9" width="12" height="9" fill="#e63946"/>
+          <rect x="6" y="18" width="8" height="3" fill="#9d1c26"/>
+          <rect x="10" y="21" width="4" height="2" fill="#9d1c26"/>
+          <!-- Right yellow face -->
+          <rect x="14" y="9" width="12" height="9" fill="#ffd23f"/>
+          <rect x="14" y="18" width="8" height="3" fill="#c99a00"/>
+          <rect x="14" y="21" width="4" height="2" fill="#c99a00"/>
+          <!-- Crisp dark center seam -->
+          <rect x="13" y="9" width="2" height="12" fill="#07070a"/>
+        </g>
+        <!-- Label -->
+        <rect x="-16" y="24" width="32" height="13" fill="#07070a" fill-opacity="0.85"/>
+        <text x="0" y="34" text-anchor="middle" class="font-head" font-size="8.5" fill="#f5f5f5">3D</text>
+      </g>
+    </g>
+  </g>
+</svg>

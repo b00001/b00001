@@ -1,0 +1,429 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="260" viewBox="0 0 840 260" shape-rendering="crispEdges">
+  <defs>
+    <style>
+      .font-head { font-family: 'Press Start 2P', 'Courier New', monospace; }
+      .font-body { font-family: 'Courier New', monospace; }
+
+      @keyframes galaxySpin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      @keyframes corePulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.72; }
+      }
+      @keyframes twinkleA {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.2; }
+      }
+      @keyframes twinkleB {
+        0%, 100% { opacity: 0.25; }
+        50% { opacity: 1; }
+      }
+      @keyframes twinkleC {
+        0%, 60%, 100% { opacity: 0.95; }
+        30% { opacity: 0.15; }
+      }
+      @keyframes shootStar {
+        0% { transform: translate(560px, 14px); opacity: 0; }
+        4% { opacity: 1; }
+        16% { transform: translate(270px, 158px); opacity: 1; }
+        21% { transform: translate(230px, 178px); opacity: 0; }
+        100% { transform: translate(230px, 178px); opacity: 0; }
+      }
+      @keyframes cursorBlink {
+        0%, 49% { opacity: 1; }
+        50%, 100% { opacity: 0; }
+      }
+      @keyframes badgePulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.35; }
+      }
+
+      .galaxy-spin {
+        transform-box: fill-box;
+        transform-origin: center;
+        animation: galaxySpin 76s linear infinite;
+      }
+      .mini-galaxy-spin {
+        transform-box: fill-box;
+        transform-origin: center;
+        animation: galaxySpin 90s linear infinite reverse;
+      }
+      .core-pulse { animation: corePulse 3.6s ease-in-out infinite; }
+      .tw-a { animation: twinkleA 2.6s steps(2, end) infinite; }
+      .tw-b { animation: twinkleB 3.5s steps(2, end) infinite; }
+      .tw-c { animation: twinkleC 4.3s steps(3, end) infinite; }
+      .shooting-star { animation: shootStar 6s linear infinite; }
+      .cursor-blink { animation: cursorBlink 1.1s steps(1, end) infinite; }
+      .badge-dot { animation: badgePulse 1.8s steps(2, end) infinite; }
+    </style>
+
+    <clipPath id="sky-clip">
+      <rect x="20" y="20" width="794" height="216"/>
+    </clipPath>
+
+    <!-- Reusable pixel stars -->
+    <symbol id="star-dot" viewBox="0 0 4 4">
+      <rect x="1" y="1" width="2" height="2" fill="currentColor"/>
+    </symbol>
+    <symbol id="star-plus" viewBox="0 0 6 6">
+      <rect x="2" y="0" width="2" height="6" fill="currentColor"/>
+      <rect x="0" y="2" width="6" height="2" fill="currentColor"/>
+    </symbol>
+    <symbol id="star-sparkle" viewBox="0 0 10 10">
+      <rect x="4" y="0" width="2" height="10" fill="currentColor"/>
+      <rect x="0" y="4" width="10" height="2" fill="currentColor"/>
+      <rect x="2" y="2" width="6" height="6" fill="currentColor" opacity="0.45"/>
+      <rect x="4" y="4" width="2" height="2" fill="#f5f5f5"/>
+    </symbol>
+
+    <!-- Pixel-art Hero Spiral Galaxy Arm (mirrored 180deg for 2-arm grand spiral) -->
+    <g id="galaxy-arm-main">
+      <!-- Inner bright yellow-gold bridge leaving core -->
+      <rect x="12" y="-4" width="12" height="12" fill="#ffd23f"/>
+      <rect x="16" y="4" width="12" height="12" fill="#ffd23f"/>
+      <rect x="12" y="14" width="12" height="12" fill="#ffd23f"/>
+      <rect x="4" y="24" width="14" height="10" fill="#ffd23f"/>
+      <rect x="-8" y="32" width="14" height="10" fill="#ffd23f"/>
+      <rect x="-24" y="36" width="16" height="10" fill="#c99a00"/>
+      <rect x="-42" y="32" width="16" height="10" fill="#ffd23f"/>
+      <rect x="-58" y="20" width="16" height="10" fill="#c99a00"/>
+      <rect x="-70" y="4" width="14" height="14" fill="#ffd23f"/>
+      <rect x="-76" y="-16" width="12" height="16" fill="#c99a00"/>
+      <rect x="-72" y="-38" width="12" height="16" fill="#c99a00"/>
+      <rect x="-60" y="-60" width="12" height="14" fill="#ffd23f" opacity="0.9"/>
+      <rect x="-42" y="-78" width="14" height="10" fill="#c99a00" opacity="0.85"/>
+      <rect x="-18" y="-92" width="14" height="8" fill="#c99a00" opacity="0.75"/>
+      <rect x="8" y="-100" width="14" height="6" fill="#ffd23f" opacity="0.65"/>
+      <rect x="34" y="-96" width="12" height="6" fill="#c99a00" opacity="0.5"/>
+      <rect x="54" y="-86" width="8" height="4" fill="#c99a00" opacity="0.4"/>
+
+      <!-- Red spiral nebula band hugging & weaving through the arm -->
+      <rect x="24" y="8" width="8" height="12" fill="#e63946"/>
+      <rect x="20" y="20" width="10" height="10" fill="#e63946"/>
+      <rect x="12" y="30" width="12" height="10" fill="#e63946"/>
+      <rect x="-2" y="40" width="14" height="8" fill="#e63946"/>
+      <rect x="-20" y="44" width="16" height="8" fill="#9d1c26"/>
+      <rect x="-40" y="40" width="16" height="8" fill="#e63946"/>
+      <rect x="-60" y="28" width="14" height="10" fill="#e63946"/>
+      <rect x="-76" y="12" width="12" height="14" fill="#9d1c26"/>
+      <rect x="-84" y="-10" width="10" height="16" fill="#e63946"/>
+      <rect x="-82" y="-34" width="10" height="18" fill="#9d1c26"/>
+      <rect x="-72" y="-58" width="12" height="16" fill="#e63946"/>
+      <rect x="-54" y="-80" width="14" height="12" fill="#9d1c26"/>
+      <rect x="-32" y="-96" width="16" height="8" fill="#e63946" opacity="0.85"/>
+      <rect x="-4" y="-106" width="16" height="8" fill="#9d1c26" opacity="0.75"/>
+      <rect x="24" y="-104" width="14" height="6" fill="#e63946" opacity="0.6"/>
+      <rect x="48" y="-94" width="10" height="6" fill="#9d1c26" opacity="0.5"/>
+      <rect x="68" y="-78" width="6" height="4" fill="#9d1c26" opacity="0.4"/>
+
+      <!-- Inner crimson edge & glowing dust knots -->
+      <rect x="8" y="18" width="6" height="6" fill="#e63946" opacity="0.75"/>
+      <rect x="-14" y="26" width="8" height="6" fill="#9d1c26" opacity="0.8"/>
+      <rect x="-38" y="22" width="8" height="6" fill="#e63946" opacity="0.7"/>
+      <rect x="-56" y="6" width="8" height="8" fill="#9d1c26" opacity="0.75"/>
+      <rect x="-62" y="-22" width="6" height="10" fill="#e63946" opacity="0.7"/>
+      <rect x="-48" y="-50" width="8" height="8" fill="#9d1c26" opacity="0.7"/>
+      <rect x="-24" y="-74" width="8" height="6" fill="#e63946" opacity="0.6"/>
+
+      <!-- Bright white & yellow pixel star clusters embedded in arm -->
+      <rect x="18" y="8" width="4" height="4" fill="#f5f5f5"/>
+      <rect x="8" y="26" width="4" height="4" fill="#f5f5f5" class="tw-a"/>
+      <rect x="-16" y="38" width="4" height="4" fill="#f5f5f5"/>
+      <rect x="-46" y="34" width="4" height="4" fill="#f5f5f5" class="tw-b"/>
+      <rect x="-66" y="12" width="4" height="4" fill="#f5f5f5"/>
+      <rect x="-74" y="-22" width="4" height="4" fill="#ffd23f" class="tw-c"/>
+      <rect x="-58" y="-54" width="4" height="4" fill="#f5f5f5" class="tw-a"/>
+      <rect x="-30" y="-82" width="4" height="4" fill="#ffd23f"/>
+      <rect x="10" y="-98" width="4" height="4" fill="#f5f5f5" class="tw-b"/>
+
+      <!-- Outer dust specks (dim white & red) -->
+      <rect x="-90" y="-2" width="4" height="4" fill="#8a8a8f" opacity="0.6"/>
+      <rect x="-86" y="-44" width="4" height="4" fill="#8a8a8f" opacity="0.5"/>
+      <rect x="-64" y="-78" width="4" height="4" fill="#ffd23f" opacity="0.65" class="tw-b"/>
+      <rect x="-34" y="-104" width="4" height="4" fill="#8a8a8f" opacity="0.55"/>
+      <rect x="18" y="-110" width="4" height="4" fill="#e63946" opacity="0.6"/>
+      <rect x="60" y="-92" width="4" height="4" fill="#8a8a8f" opacity="0.45"/>
+      <rect x="-50" y="48" width="4" height="4" fill="#8a8a8f" opacity="0.55"/>
+      <rect x="2" y="48" width="4" height="4" fill="#ffd23f" opacity="0.6" class="tw-a"/>
+    </g>
+
+    <!-- Secondary wispy spiral spur (mirrored 180deg) -->
+    <g id="galaxy-arm-spur">
+      <rect x="-12" y="16" width="8" height="6" fill="#c99a00" opacity="0.7"/>
+      <rect x="-26" y="12" width="10" height="6" fill="#9d1c26" opacity="0.75"/>
+      <rect x="-40" y="0" width="10" height="8" fill="#c99a00" opacity="0.65"/>
+      <rect x="-46" y="-18" width="8" height="12" fill="#e63946" opacity="0.6"/>
+      <rect x="-40" y="-40" width="8" height="12" fill="#9d1c26" opacity="0.6"/>
+      <rect x="-26" y="-56" width="10" height="8" fill="#c99a00" opacity="0.55"/>
+      <rect x="-6" y="-66" width="12" height="6" fill="#9d1c26" opacity="0.5"/>
+      <rect x="18" y="-68" width="12" height="6" fill="#c99a00" opacity="0.45"/>
+      <rect x="40" y="-60" width="8" height="4" fill="#8a8a8f" opacity="0.45"/>
+      <rect x="-38" y="-10" width="4" height="4" fill="#f5f5f5" opacity="0.8" class="tw-c"/>
+      <rect x="-18" y="-54" width="4" height="4" fill="#ffd23f" opacity="0.85" class="tw-a"/>
+      <rect x="24" y="-66" width="4" height="4" fill="#f5f5f5" opacity="0.7"/>
+    </g>
+
+    <!-- Chunky pixel title "b00001" (8px pixel cell, 5x7 per glyph, 1-cell gap) -->
+    <g id="title-b00001">
+      <!-- b (x=0..40) -->
+      <rect x="0" y="0" width="8" height="56"/>
+      <rect x="8" y="16" width="24" height="8"/>
+      <rect x="32" y="24" width="8" height="24"/>
+      <rect x="8" y="48" width="24" height="8"/>
+
+      <!-- 0 #1 (x=48..88) -->
+      <rect x="56" y="0" width="24" height="8"/>
+      <rect x="48" y="8" width="8" height="40"/>
+      <rect x="80" y="8" width="8" height="40"/>
+      <rect x="56" y="48" width="24" height="8"/>
+      <rect x="64" y="24" width="8" height="8"/>
+
+      <!-- 0 #2 (x=96..136) -->
+      <rect x="104" y="0" width="24" height="8"/>
+      <rect x="96" y="8" width="8" height="40"/>
+      <rect x="128" y="8" width="8" height="40"/>
+      <rect x="104" y="48" width="24" height="8"/>
+      <rect x="112" y="24" width="8" height="8"/>
+
+      <!-- 0 #3 (x=144..184) -->
+      <rect x="152" y="0" width="24" height="8"/>
+      <rect x="144" y="8" width="8" height="40"/>
+      <rect x="176" y="8" width="8" height="40"/>
+      <rect x="152" y="48" width="24" height="8"/>
+      <rect x="160" y="24" width="8" height="8"/>
+
+      <!-- 0 #4 (x=192..232) -->
+      <rect x="200" y="0" width="24" height="8"/>
+      <rect x="192" y="8" width="8" height="40"/>
+      <rect x="224" y="8" width="8" height="40"/>
+      <rect x="200" y="48" width="24" height="8"/>
+      <rect x="208" y="24" width="8" height="8"/>
+
+      <!-- 1 (x=240..280) -->
+      <rect x="256" y="0" width="8" height="48"/>
+      <rect x="248" y="8" width="8" height="8"/>
+      <rect x="248" y="48" width="24" height="8"/>
+    </g>
+
+    <!-- Crisp white highlight strip on top edge of title letters -->
+    <g id="title-highlight" fill="#f5f5f5">
+      <rect x="0" y="0" width="8" height="4"/>
+      <rect x="8" y="16" width="24" height="4"/>
+      <rect x="56" y="0" width="24" height="4"/>
+      <rect x="104" y="0" width="24" height="4"/>
+      <rect x="152" y="0" width="24" height="4"/>
+      <rect x="200" y="0" width="24" height="4"/>
+      <rect x="256" y="0" width="8" height="4"/>
+      <rect x="248" y="8" width="8" height="4"/>
+    </g>
+  </defs>
+
+  <!-- Opaque outer canvas background -->
+  <rect x="0" y="0" width="840" height="260" fill="#07070a"/>
+
+  <!-- Hard offset drop shadow in red -->
+  <rect x="22" y="20" width="802" height="230" fill="#9d1c26"/>
+  <rect x="18" y="24" width="810" height="222" fill="#9d1c26"/>
+
+  <!-- Outer near-black pixel outline -->
+  <rect x="16" y="10" width="802" height="238" fill="#07070a"/>
+  <rect x="8" y="18" width="818" height="222" fill="#07070a"/>
+
+  <!-- Chunky 4px pixel window border (yellow + white highlight + dark gold bevel) -->
+  <rect x="16" y="12" width="802" height="232" fill="#ffd23f"/>
+  <rect x="12" y="16" width="810" height="224" fill="#ffd23f"/>
+  <!-- Top & left crisp white bevel highlight -->
+  <rect x="16" y="12" width="802" height="4" fill="#f5f5f5"/>
+  <rect x="12" y="16" width="4" height="224" fill="#f5f5f5"/>
+  <!-- Bottom & right darker yellow bevel shadow -->
+  <rect x="16" y="240" width="802" height="4" fill="#c99a00"/>
+  <rect x="818" y="16" width="4" height="224" fill="#c99a00"/>
+  <!-- Inner dark frame line -->
+  <rect x="18" y="18" width="798" height="220" fill="#07070a"/>
+
+  <!-- GALAXY VIEWPORT (clipped cleanly inside window) -->
+  <g clip-path="url(#sky-clip)">
+    <!-- Deep black cosmic backdrop with subtle stepped bands -->
+    <rect x="20" y="20" width="794" height="216" fill="#07070a"/>
+    <rect x="20" y="156" width="794" height="44" fill="#0c0c10"/>
+    <rect x="20" y="200" width="794" height="36" fill="#111114"/>
+
+    <!-- Subtle pixel dither pixels at band seams -->
+    <g fill="#0c0c10">
+      <rect x="44" y="152" width="8" height="4"/><rect x="124" y="152" width="8" height="4"/><rect x="228" y="152" width="8" height="4"/>
+      <rect x="348" y="152" width="8" height="4"/><rect x="468" y="152" width="8" height="4"/><rect x="596" y="152" width="8" height="4"/>
+      <rect x="724" y="152" width="8" height="4"/>
+    </g>
+    <g fill="#111114">
+      <rect x="68" y="196" width="8" height="4"/><rect x="180" y="196" width="8" height="4"/><rect x="300" y="196" width="8" height="4"/>
+      <rect x="428" y="196" width="8" height="4"/><rect x="548" y="196" width="8" height="4"/><rect x="684" y="196" width="8" height="4"/>
+    </g>
+
+    <!-- Distant mini spiral galaxy on lower-left -->
+    <g transform="translate(88, 198) scale(0.32)">
+      <g class="mini-galaxy-spin">
+        <rect x="-70" y="-70" width="140" height="140" fill="none"/>
+        <rect x="-12" y="-12" width="24" height="24" fill="#ffd23f" opacity="0.5"/>
+        <rect x="-6" y="-6" width="12" height="12" fill="#f5f5f5" opacity="0.8"/>
+        <rect x="12" y="-6" width="14" height="8" fill="#c99a00" opacity="0.55"/>
+        <rect x="20" y="4" width="12" height="10" fill="#e63946" opacity="0.5"/>
+        <rect x="12" y="18" width="14" height="8" fill="#9d1c26" opacity="0.45"/>
+        <rect x="-8" y="24" width="16" height="8" fill="#c99a00" opacity="0.4"/>
+        <rect x="-26" y="-2" width="14" height="8" fill="#c99a00" opacity="0.55"/>
+        <rect x="-32" y="-14" width="12" height="10" fill="#e63946" opacity="0.5"/>
+        <rect x="-26" y="-26" width="14" height="8" fill="#9d1c26" opacity="0.45"/>
+        <rect x="-8" y="-32" width="16" height="8" fill="#c99a00" opacity="0.4"/>
+      </g>
+    </g>
+
+    <!-- Faint geometric constellation lines on upper-left -->
+    <g stroke="#2a2a30" stroke-width="2" stroke-dasharray="3 4" fill="none">
+      <line x1="48" y1="98" x2="88" y2="82"/>
+      <line x1="88" y1="82" x2="112" y2="118"/>
+      <line x1="48" y1="98" x2="72" y2="136"/>
+    </g>
+
+    <!-- HERO ROTATING PIXEL-ART SPIRAL GALAXY (right side, tilted slightly) -->
+    <g transform="translate(658, 128) rotate(-14) scale(1, 0.82)">
+      <g class="galaxy-spin">
+        <!-- Invisible symmetric bounds anchor for exact center rotation -->
+        <rect x="-124" y="-124" width="248" height="248" fill="none"/>
+
+        <!-- Soft stepped outer cosmic aura -->
+        <rect x="-44" y="-28" width="88" height="56" fill="#9d1c26" opacity="0.16"/>
+        <rect x="-28" y="-44" width="56" height="88" fill="#9d1c26" opacity="0.16"/>
+        <rect x="-32" y="-20" width="64" height="40" fill="#c99a00" opacity="0.22"/>
+        <rect x="-20" y="-32" width="40" height="64" fill="#c99a00" opacity="0.22"/>
+
+        <!-- 2 Secondary wispy dust arms -->
+        <use href="#galaxy-arm-spur"/>
+        <use href="#galaxy-arm-spur" transform="rotate(180)"/>
+
+        <!-- 2 Primary red & yellow spiral arms -->
+        <use href="#galaxy-arm-main"/>
+        <use href="#galaxy-arm-main" transform="rotate(180)"/>
+
+        <!-- Glowing Galactic Core -->
+        <g class="core-pulse">
+          <rect x="-16" y="-12" width="32" height="24" fill="#c99a00"/>
+          <rect x="-12" y="-16" width="24" height="32" fill="#c99a00"/>
+          <rect x="-12" y="-8" width="24" height="16" fill="#ffd23f"/>
+          <rect x="-8" y="-12" width="16" height="24" fill="#ffd23f"/>
+          <rect x="-6" y="-6" width="12" height="12" fill="#f5f5f5"/>
+          <rect x="-2" y="-10" width="4" height="20" fill="#f5f5f5"/>
+          <rect x="-10" y="-2" width="20" height="4" fill="#f5f5f5"/>
+          <rect x="-4" y="-4" width="8" height="8" fill="#ffffff"/>
+        </g>
+      </g>
+    </g>
+
+    <!-- Scattered Twinkling White, Yellow & Red Starfield -->
+    <g color="#f5f5f5">
+      <use href="#star-sparkle" x="83" y="77" width="10" height="10" class="tw-a"/>
+      <use href="#star-plus" x="45" y="95" width="6" height="6" class="tw-b"/>
+      <use href="#star-plus" x="218" y="34" width="6" height="6" class="tw-c"/>
+      <use href="#star-sparkle" x="488" y="42" width="10" height="10" class="tw-b"/>
+      <use href="#star-plus" x="782" y="38" width="6" height="6" class="tw-a"/>
+      <use href="#star-plus" x="524" y="198" width="6" height="6" class="tw-c"/>
+      <use href="#star-plus" x="786" y="194" width="6" height="6" class="tw-b"/>
+      <use href="#star-dot" x="34" y="142" width="4" height="4" class="tw-a"/>
+      <use href="#star-dot" x="148" y="36" width="4" height="4" class="tw-b"/>
+      <use href="#star-dot" x="312" y="32" width="4" height="4" class="tw-c"/>
+      <use href="#star-dot" x="424" y="46" width="4" height="4" class="tw-a"/>
+      <use href="#star-dot" x="546" y="34" width="4" height="4" class="tw-b"/>
+      <use href="#star-dot" x="164" y="212" width="4" height="4" class="tw-c"/>
+      <use href="#star-dot" x="366" y="206" width="4" height="4" class="tw-a"/>
+      <use href="#star-dot" x="478" y="168" width="4" height="4" class="tw-b"/>
+      <use href="#star-dot" x="794" y="114" width="4" height="4" class="tw-a"/>
+      <use href="#star-dot" x="44" y="216" width="4" height="4" class="tw-c"/>
+    </g>
+    <g color="#ffd23f">
+      <use href="#star-plus" x="109" y="115" width="6" height="6" class="tw-b"/>
+      <use href="#star-sparkle" x="382" y="28" width="10" height="10" class="tw-a"/>
+      <use href="#star-plus" x="256" y="208" width="6" height="6" class="tw-c"/>
+      <use href="#star-dot" x="182" y="54" width="4" height="4" class="tw-a"/>
+      <use href="#star-dot" x="510" y="96" width="4" height="4" class="tw-b"/>
+      <use href="#star-dot" x="748" y="32" width="4" height="4" class="tw-c"/>
+      <use href="#star-dot" x="444" y="214" width="4" height="4" class="tw-b"/>
+    </g>
+    <g color="#e63946">
+      <use href="#star-plus" x="69" y="133" width="6" height="6" class="tw-c"/>
+      <use href="#star-plus" x="466" y="118" width="6" height="6" class="tw-a"/>
+      <use href="#star-dot" x="284" y="42" width="4" height="4" class="tw-b"/>
+      <use href="#star-dot" x="534" y="148" width="4" height="4" class="tw-c"/>
+      <use href="#star-dot" x="774" y="214" width="4" height="4" class="tw-a"/>
+      <use href="#star-dot" x="132" y="182" width="4" height="4" class="tw-b"/>
+    </g>
+
+    <!-- Red & Yellow Shooting Star (every ~6s) -->
+    <g class="shooting-star">
+      <rect x="44" y="-22" width="4" height="4" fill="#9d1c26" opacity="0.35"/>
+      <rect x="38" y="-19" width="6" height="4" fill="#9d1c26" opacity="0.55"/>
+      <rect x="30" y="-15" width="8" height="4" fill="#e63946" opacity="0.75"/>
+      <rect x="22" y="-11" width="10" height="4" fill="#e63946"/>
+      <rect x="12" y="-6" width="12" height="4" fill="#ffd23f"/>
+      <rect x="4" y="-2" width="10" height="4" fill="#ffd23f"/>
+      <rect x="-2" y="0" width="6" height="6" fill="#f5f5f5"/>
+      <rect x="0" y="-2" width="2" height="10" fill="#ffd23f"/>
+      <rect x="-4" y="2" width="10" height="2" fill="#e63946"/>
+    </g>
+
+    <!-- Corner Badge: GALAXY (top-left) -->
+    <g transform="translate(32, 32)">
+      <rect x="3" y="3" width="104" height="22" fill="#9d1c26"/>
+      <rect x="0" y="0" width="104" height="22" fill="#111114" stroke="#ffd23f" stroke-width="2"/>
+      <!-- Tiny pixel star/spiral emblem -->
+      <g class="badge-dot">
+        <rect x="10" y="7" width="2" height="8" fill="#e63946"/>
+        <rect x="7" y="10" width="8" height="2" fill="#e63946"/>
+        <rect x="9" y="9" width="4" height="4" fill="#ffd23f"/>
+        <rect x="10" y="10" width="2" height="2" fill="#f5f5f5"/>
+      </g>
+      <text x="24" y="15" class="font-head" font-size="9" fill="#ffd23f" letter-spacing="0.8">GALAXY</text>
+    </g>
+
+    <!-- BIG CHUNKY PIXEL TITLE "b00001" (yellow + red hard pixel shadow + white highlight) -->
+    <g transform="translate(106, 68)">
+      <!-- Deep dark red far shadow -->
+      <use href="#title-b00001" x="6" y="6" fill="#9d1c26"/>
+      <!-- Bright red hard pixel shadow -->
+      <use href="#title-b00001" x="4" y="4" fill="#e63946"/>
+      <!-- Main yellow fill -->
+      <use href="#title-b00001" x="0" y="0" fill="#ffd23f"/>
+      <!-- Crisp white highlight strip -->
+      <use href="#title-highlight" x="0" y="0"/>
+    </g>
+
+    <!-- Subtitle Pill + Text + Blinking Cursor -->
+    <g>
+      <rect x="52" y="146" width="394" height="28" fill="#9d1c26" opacity="0.7"/>
+      <rect x="49" y="143" width="394" height="28" fill="#111114"/>
+      <rect x="49" y="143" width="394" height="2" fill="#8a8a8f"/>
+      <rect x="49" y="169" width="394" height="2" fill="#8a8a8f"/>
+      <rect x="49" y="143" width="2" height="28" fill="#8a8a8f"/>
+      <rect x="441" y="143" width="2" height="28" fill="#8a8a8f"/>
+      <!-- Corner pixel accents -->
+      <rect x="49" y="143" width="4" height="4" fill="#ffd23f"/>
+      <rect x="439" y="143" width="4" height="4" fill="#ffd23f"/>
+      <rect x="49" y="167" width="4" height="4" fill="#e63946"/>
+      <rect x="439" y="167" width="4" height="4" fill="#e63946"/>
+
+      <text x="64" y="161" class="font-body" font-size="13" font-weight="bold" fill="#f5f5f5">hi, i'm <tspan fill="#ffd23f">b00001</tspan> ~ builder of worlds &amp; tiny AIs</text>
+      <rect x="424" y="151" width="7" height="12" fill="#ffd23f" class="cursor-blink"/>
+    </g>
+
+    <!-- Subtle bottom-left retro HUD telemetry tag -->
+    <g>
+      <rect x="34" y="218" width="4" height="4" fill="#e63946" class="badge-dot"/>
+      <text x="44" y="224" class="font-body" font-size="10" fill="#8a8a8f">SECTOR 01 · DEEP SPACE</text>
+    </g>
+  </g>
+
+  <!-- Corner accent pixel jewels on outer frame -->
+  <rect x="16" y="12" width="4" height="4" fill="#e63946"/>
+  <rect x="814" y="12" width="4" height="4" fill="#e63946"/>
+  <rect x="16" y="240" width="4" height="4" fill="#e63946"/>
+  <rect x="814" y="240" width="4" height="4" fill="#e63946"/>
+</svg>
