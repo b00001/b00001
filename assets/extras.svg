@@ -125,116 +125,7 @@
     <rect x="774" y="304" width="3" height="3" fill="#e63946" class="drift-b"/>
   </g>
 
-  <!-- ==================== LEFT SUB-PANEL: CONSTELLATION LOG ==================== -->
-  <!-- Hard offset drop shadow in red -->
-  <rect x="22" y="40" width="392" height="244" fill="#9d1c26"/>
-  <rect x="18" y="44" width="400" height="236" fill="#9d1c26"/>
-  <rect x="22" y="16" width="252" height="28" fill="#9d1c26"/>
-
-  <!-- Outer near-black pixel outline -->
-  <rect x="16" y="30" width="392" height="252" fill="#07070a"/>
-  <rect x="8" y="38" width="408" height="236" fill="#07070a"/>
-  <rect x="16" y="6" width="252" height="32" fill="#07070a"/>
-  <rect x="12" y="10" width="260" height="28" fill="#07070a"/>
-
-  <!-- Chunky 4px border (yellow + white highlight + dark gold bevel) -->
-  <rect x="16" y="34" width="392" height="244" fill="#ffd23f"/>
-  <rect x="12" y="38" width="400" height="236" fill="#ffd23f"/>
-  <rect x="16" y="34" width="392" height="4" fill="#f5f5f5"/>
-  <rect x="12" y="38" width="4" height="236" fill="#f5f5f5"/>
-  <rect x="16" y="274" width="392" height="4" fill="#c99a00"/>
-  <rect x="408" y="38" width="4" height="236" fill="#c99a00"/>
-
-  <!-- Left panel interior -->
-  <rect x="18" y="38" width="388" height="236" fill="#111114"/>
-
-  <!-- Subtle drifting background stars inside left panel -->
-  <rect x="378" y="54" width="2" height="2" fill="#8a8a8f" class="drift-a"/>
-  <rect x="364" y="176" width="2" height="2" fill="#ffd23f" opacity="0.6" class="drift-b"/>
-  <rect x="382" y="136" width="2" height="2" fill="#e63946" opacity="0.6" class="tw-a"/>
-
-  <!-- Left Tab: CONSTELLATION LOG -->
-  <rect x="16" y="10" width="252" height="28" fill="#ffd23f"/>
-  <rect x="12" y="14" width="260" height="24" fill="#ffd23f"/>
-  <rect x="16" y="10" width="252" height="4" fill="#f5f5f5"/>
-  <rect x="12" y="14" width="4" height="24" fill="#f5f5f5"/>
-  <rect x="268" y="14" width="4" height="24" fill="#c99a00"/>
-  <rect x="18" y="14" width="248" height="28" fill="#111114"/>
-  <!-- Tab icon + label -->
-  <g color="#ffd23f">
-    <use href="#log-star" x="28" y="19" width="10" height="10" class="tw-a"/>
-  </g>
-  <text x="46" y="29" class="font-head" font-size="9.5" fill="#ffd23f" letter-spacing="0.4">CONSTELLATION LOG</text>
-
-  <!-- Corner jewels (left panel, red) -->
-  <rect x="16" y="10" width="4" height="4" fill="#e63946"/>
-  <rect x="404" y="34" width="4" height="4" fill="#e63946"/>
-  <rect x="16" y="274" width="4" height="4" fill="#e63946"/>
-  <rect x="404" y="274" width="4" height="4" fill="#e63946"/>
-
-  <!-- Favourite Things List (4 rows with tiny pixel star icons) -->
-  <!-- Row 1 -->
-  <g color="#ffd23f">
-    <use href="#log-star" x="34" y="66" width="10" height="10" class="tw-a"/>
-  </g>
-  <text x="54" y="76" class="font-body" font-size="13" font-weight="bold">
-    <tspan fill="#8a8a8f">fav planet </tspan><tspan fill="#3a3a42">...... </tspan><tspan fill="#ffd23f">saturn</tspan>
-  </text>
-  <line x1="34" y1="92" x2="390" y2="92" stroke="#26262c" stroke-width="2" stroke-dasharray="3 4"/>
-
-  <!-- Row 2 -->
-  <g color="#e63946">
-    <use href="#log-star" x="34" y="104" width="10" height="10" class="tw-b"/>
-  </g>
-  <text x="54" y="114" class="font-body" font-size="13" font-weight="bold">
-    <tspan fill="#8a8a8f">fav snack </tspan><tspan fill="#3a3a42">...... </tspan><tspan fill="#e63946">mango sticky rice</tspan>
-  </text>
-  <line x1="34" y1="130" x2="390" y2="130" stroke="#26262c" stroke-width="2" stroke-dasharray="3 4"/>
-
-  <!-- Row 3 -->
-  <g color="#f5f5f5">
-    <use href="#log-star" x="34" y="142" width="10" height="10" class="tw-a"/>
-  </g>
-  <text x="54" y="152" class="font-body" font-size="13" font-weight="bold">
-    <tspan fill="#8a8a8f">fav genre </tspan><tspan fill="#3a3a42">....... </tspan><tspan fill="#f5f5f5">cozy sim</tspan>
-  </text>
-  <line x1="34" y1="168" x2="390" y2="168" stroke="#26262c" stroke-width="2" stroke-dasharray="3 4"/>
-
-  <!-- Row 4 -->
-  <g color="#ffd23f">
-    <use href="#log-star" x="34" y="180" width="10" height="10" class="tw-b"/>
-  </g>
-  <text x="54" y="190" class="font-body" font-size="13" font-weight="bold">
-    <tspan fill="#8a8a8f">currently </tspan><tspan fill="#3a3a42">....... </tspan><tspan fill="#ffd23f">learning shaders</tspan>
-  </text>
-
-  <!-- Mini Star Chart decoration box with distant rotating galaxy -->
-  <g>
-    <rect x="34" y="210" width="356" height="48" fill="#07070a" stroke="#8a8a8f" stroke-width="2"/>
-    <rect x="34" y="210" width="4" height="4" fill="#ffd23f"/>
-    <rect x="386" y="210" width="4" height="4" fill="#ffd23f"/>
-
-    <!-- Left mini constellation -->
-    <g stroke="#3a3a42" stroke-width="2" stroke-dasharray="2 2">
-      <line x1="50" y1="240" x2="74" y2="224"/>
-      <line x1="74" y1="224" x2="100" y2="240"/>
-    </g>
-    <rect x="48" y="238" width="4" height="4" fill="#f5f5f5" class="tw-a"/>
-    <rect x="72" y="222" width="4" height="4" fill="#ffd23f" class="tw-b"/>
-    <rect x="98" y="238" width="4" height="4" fill="#e63946" class="tw-a"/>
-
-    <!-- Center cozy caption -->
-    <text x="212" y="238" text-anchor="middle" class="font-body" font-size="10.5" fill="#8a8a8f">★ STAR CHART · SECTOR 01 ★</text>
-
-    <!-- Distant small rotating pixel galaxy on right side of chart -->
-    <g transform="translate(348, 234) scale(0.85, 0.65)">
-      <g class="distant-spin">
-        <use href="#mini-spiral"/>
-      </g>
-    </g>
-  </g>
-
-
+  <g transform="translate(-205 0)">
   <!-- ==================== RIGHT SUB-PANEL: ON REPEAT ♪ ==================== -->
   <!-- Hard offset drop shadow in red -->
   <rect x="434" y="40" width="392" height="244" fill="#9d1c26"/>
@@ -376,6 +267,8 @@
   <text x="458" y="250" class="font-body" font-size="13" font-weight="bold" xml:space="preserve"><tspan fill="#e63946">04</tspan><tspan fill="#f5f5f5">  Comet Tail</tspan></text>
   <text x="792" y="250" text-anchor="end" class="font-body" font-size="11.5" fill="#8a8a8f">02:28</text>
 
+
+  </g>
 
   <!-- ==================== BOTTOM BLINKING ARCADE PROMPT ==================== -->
   <g>

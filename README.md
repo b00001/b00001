@@ -4,9 +4,7 @@
 
 <p align="center">
   <a href="https://github.com/b00001"><img src="assets/btn-github.svg" width="200" alt="GitHub @b00001"></a>
-  <!-- Add more social buttons here later:
-  <a href="https://example.com"><img src="assets/btn-xxx.svg" width="24%" alt="Social link"></a>
-  -->
+  <a href="https://www.instagram.com/b24az/"><img src="assets/btn-instagram.svg" width="200" alt="Instagram @b24az"></a>
 </p>
 
 <p align="center">
@@ -14,7 +12,7 @@
 </p>
 
 <p align="center">
-  <img src="assets/extras.svg" width="100%" alt="b00001 constellation log and on repeat playlist">
+  <img src="assets/extras.svg" width="100%" alt="b00001 on repeat playlist">
 </p>
 
 <p align="center">
