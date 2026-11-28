@@ -20,10 +20,6 @@
   <img src="assets/star-log.svg" width="100%" alt="b00001 star log: contributions as a galaxy of stars">
 </p>
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=b00001&amp;hide_border=true&amp;bg_color=07070a&amp;title_color=ffd23f&amp;icon_color=e63946&amp;text_color=f5f5f5&amp;show_icons=true" height="150" alt="b00001 GitHub stats">
-</p>
-
 <p align="center"><sub>
   <b>credits</b> · dancing duck pixelated from <a href="https://i.pinimg.com/originals/bb/6e/99/bb6e999e11cae9c0006f8abcde8001bf.gif">this gif on Pinterest</a>
   · alien cat &amp; dog pixelated from the Tenor memes
