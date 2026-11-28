@@ -16,10 +16,6 @@
   <img src="assets/alien-dance.gif" width="49%" alt="pixel alien cat and alien dog dancing">
 </p>
 
-<p align="center">
-  <img src="assets/star-log.svg" width="100%" alt="b00001 star log: contributions as a galaxy of stars">
-</p>
-
 <p align="center"><sub>
   <b>credits</b> · dancing duck pixelated from <a href="https://i.pinimg.com/originals/bb/6e/99/bb6e999e11cae9c0006f8abcde8001bf.gif">this gif on Pinterest</a>
   · alien cat &amp; dog pixelated from the Tenor memes
